@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E2C27E34-2FCA-4DB0-AE38-35BEBDFC54A2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RPFTool</RootNamespace>
+    <AssemblyName>RPFTool</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>rpf.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v12.2, Version=12.2.7.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v12.2, Version=12.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v12.2.Core, Version=12.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v12.2, Version=12.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v12.2, Version=12.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v12.2, Version=12.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="aboutform.cs" />
+    <Compile Include="aboutform.Designer.cs">
+      <DependentUpon>aboutform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compression\BZip2\BZip2.cs" />
+    <Compile Include="Compression\BZip2\BZip2Constants.cs" />
+    <Compile Include="Compression\BZip2\BZip2Exception.cs" />
+    <Compile Include="Compression\BZip2\BZip2InputStream.cs" />
+    <Compile Include="Compression\BZip2\BZip2OutputStream.cs" />
+    <Compile Include="Compression\Checksums\Adler32.cs" />
+    <Compile Include="Compression\Checksums\CRC32.cs" />
+    <Compile Include="Compression\Checksums\IChecksum.cs" />
+    <Compile Include="Compression\Checksums\StrangeCRC.cs" />
+    <Compile Include="Compression\Core\FileSystemScanner.cs" />
+    <Compile Include="Compression\Core\INameTransform.cs" />
+    <Compile Include="Compression\Core\IScanFilter.cs" />
+    <Compile Include="Compression\Core\NameFilter.cs" />
+    <Compile Include="Compression\Core\PathFilter.cs" />
+    <Compile Include="Compression\Core\StreamUtils.cs" />
+    <Compile Include="Compression\Core\WindowsPathUtils.cs" />
+    <Compile Include="Compression\Encryption\PkzipClassic.cs" />
+    <Compile Include="Compression\Encryption\ZipAESStream.cs" />
+    <Compile Include="Compression\Encryption\ZipAESTransform.cs" />
+    <Compile Include="Compression\GZip\GZIPConstants.cs" />
+    <Compile Include="Compression\GZip\GZipException.cs" />
+    <Compile Include="Compression\GZip\GzipInputStream.cs" />
+    <Compile Include="Compression\GZip\GzipOutputStream.cs" />
+    <Compile Include="Compression\Lzw\LzwConstants.cs" />
+    <Compile Include="Compression\Lzw\LzwException.cs" />
+    <Compile Include="Compression\Lzw\LzwInputStream.cs" />
+    <Compile Include="Compression\SharpZipBaseException.cs" />
+    <Compile Include="Compression\Tar\InvalidHeaderException.cs" />
+    <Compile Include="Compression\Tar\TarArchive.cs" />
+    <Compile Include="Compression\Tar\TarBuffer.cs" />
+    <Compile Include="Compression\Tar\TarEntry.cs" />
+    <Compile Include="Compression\Tar\TarException.cs" />
+    <Compile Include="Compression\Tar\TarHeader.cs" />
+    <Compile Include="Compression\Tar\TarInputStream.cs" />
+    <Compile Include="Compression\Tar\TarOutputStream.cs" />
+    <Compile Include="Compression\Zip\Compression\Deflater.cs" />
+    <Compile Include="Compression\Zip\Compression\DeflaterConstants.cs" />
+    <Compile Include="Compression\Zip\Compression\DeflaterEngine.cs" />
+    <Compile Include="Compression\Zip\Compression\DeflaterHuffman.cs" />
+    <Compile Include="Compression\Zip\Compression\DeflaterPending.cs" />
+    <Compile Include="Compression\Zip\Compression\Inflater.cs" />
+    <Compile Include="Compression\Zip\Compression\InflaterDynHeader.cs" />
+    <Compile Include="Compression\Zip\Compression\InflaterHuffmanTree.cs" />
+    <Compile Include="Compression\Zip\Compression\PendingBuffer.cs" />
+    <Compile Include="Compression\Zip\Compression\Streams\DeflaterOutputStream.cs" />
+    <Compile Include="Compression\Zip\Compression\Streams\InflaterInputStream.cs" />
+    <Compile Include="Compression\Zip\Compression\Streams\OutputWindow.cs" />
+    <Compile Include="Compression\Zip\Compression\Streams\StreamManipulator.cs" />
+    <Compile Include="Compression\Zip\FastZip.cs" />
+    <Compile Include="Compression\Zip\IEntryFactory.cs" />
+    <Compile Include="Compression\Zip\WindowsNameTransform.cs" />
+    <Compile Include="Compression\Zip\ZipConstants.cs" />
+    <Compile Include="Compression\Zip\ZipEntry.cs" />
+    <Compile Include="Compression\Zip\ZipEntryFactory.cs" />
+    <Compile Include="Compression\Zip\ZipException.cs" />
+    <Compile Include="Compression\Zip\ZipExtraData.cs" />
+    <Compile Include="Compression\Zip\ZipFile.cs" />
+    <Compile Include="Compression\Zip\ZipHelperStream.cs" />
+    <Compile Include="Compression\Zip\ZipInputStream.cs" />
+    <Compile Include="Compression\Zip\ZipNameTransform.cs" />
+    <Compile Include="Compression\Zip\ZipOutputStream.cs" />
+    <Compile Include="Compression\zlib\Adler32.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Compression\zlib\Deflate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Compression\zlib\InfBlocks.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Compression\zlib\InfCodes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Compression\zlib\Inflate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Compression\zlib\InfTree.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Compression\zlib\StaticTree.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Compression\zlib\SupportClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Compression\zlib\Tree.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Compression\zlib\ZInputStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Compression\zlib\Zlib.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Compression\zlib\ZOutputStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Compression\zlib\ZStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Compression\zlib\ZStreamException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DownloadForm.cs" />
+    <Compile Include="DownloadForm.Designer.cs">
+      <DependentUpon>DownloadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extracting.cs" />
+    <Compile Include="Extracting.Designer.cs">
+      <DependentUpon>Extracting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gameSelection.cs" />
+    <Compile Include="gameSelection.Designer.cs">
+      <DependentUpon>gameSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="iniReader.cs" />
+    <Compile Include="keyHolder.cs" />
+    <Compile Include="mainForm.cs" />
+    <Compile Include="mainForm.Designer.cs">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loader.cs" />
+    <Compile Include="Loader.Designer.cs">
+      <DependentUpon>Loader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectListView\CellEditing\CellEditKeyEngine.cs" />
+    <Compile Include="ObjectListView\CellEditing\CellEditors.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\CellEditing\EditorRegistry.cs" />
+    <Compile Include="ObjectListView\DataListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\DragDrop\DragSource.cs" />
+    <Compile Include="ObjectListView\DragDrop\DropSink.cs" />
+    <Compile Include="ObjectListView\DragDrop\OLVDataObject.cs" />
+    <Compile Include="ObjectListView\FastDataListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\FastObjectListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\Filtering\Cluster.cs" />
+    <Compile Include="ObjectListView\Filtering\ClusteringStrategy.cs" />
+    <Compile Include="ObjectListView\Filtering\ClustersFromGroupsStrategy.cs" />
+    <Compile Include="ObjectListView\Filtering\DateTimeClusteringStrategy.cs" />
+    <Compile Include="ObjectListView\Filtering\FilterMenuBuilder.cs" />
+    <Compile Include="ObjectListView\Filtering\Filters.cs" />
+    <Compile Include="ObjectListView\Filtering\ICluster.cs" />
+    <Compile Include="ObjectListView\Filtering\IClusteringStrategy.cs" />
+    <Compile Include="ObjectListView\Filtering\TextMatchFilter.cs" />
+    <Compile Include="ObjectListView\Implementation\Attributes.cs" />
+    <Compile Include="ObjectListView\Implementation\Comparers.cs" />
+    <Compile Include="ObjectListView\Implementation\DataSourceAdapter.cs" />
+    <Compile Include="ObjectListView\Implementation\Delegates.cs" />
+    <Compile Include="ObjectListView\Implementation\Enums.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\Implementation\Events.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\Implementation\GroupingParameters.cs" />
+    <Compile Include="ObjectListView\Implementation\Groups.cs" />
+    <Compile Include="ObjectListView\Implementation\Munger.cs" />
+    <Compile Include="ObjectListView\Implementation\NativeMethods.cs" />
+    <Compile Include="ObjectListView\Implementation\NullableDictionary.cs" />
+    <Compile Include="ObjectListView\Implementation\OLVListItem.cs" />
+    <Compile Include="ObjectListView\Implementation\OLVListSubItem.cs" />
+    <Compile Include="ObjectListView\Implementation\OlvListViewHitTestInfo.cs" />
+    <Compile Include="ObjectListView\Implementation\VirtualGroups.cs" />
+    <Compile Include="ObjectListView\Implementation\VirtualListDataSource.cs" />
+    <Compile Include="ObjectListView\ObjectListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\ObjectListView.DesignTime.cs" />
+    <Compile Include="ObjectListView\OLVColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\Rendering\Adornments.cs" />
+    <Compile Include="ObjectListView\Rendering\Decorations.cs" />
+    <Compile Include="ObjectListView\Rendering\Overlays.cs" />
+    <Compile Include="ObjectListView\Rendering\Renderers.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\Rendering\Styles.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\Rendering\TreeRenderer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\SubControls\GlassPanelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\SubControls\HeaderControl.cs" />
+    <Compile Include="ObjectListView\SubControls\ToolStripCheckedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\SubControls\ToolTipControl.cs" />
+    <Compile Include="ObjectListView\TreeListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\Utilities\ColumnSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObjectListView\Utilities\ColumnSelectionForm.Designer.cs">
+      <DependentUpon>ColumnSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectListView\Utilities\Generator.cs" />
+    <Compile Include="ObjectListView\Utilities\TypedObjectListView.cs" />
+    <Compile Include="ObjectListView\VirtualObjectListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OpenFolderDialog.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RPFLib\Archive.cs" />
+    <Compile Include="RPFLib\Common\BigEndianBinaryReader.cs" />
+    <Compile Include="RPFLib\Common\BigEndianBinaryWriter.cs" />
+    <Compile Include="RPFLib\Common\BitsStream.cs" />
+    <Compile Include="RPFLib\Common\DataUtil.cs" />
+    <Compile Include="RPFLib\Common\Directory.cs" />
+    <Compile Include="RPFLib\Common\Entry.cs" />
+    <Compile Include="RPFLib\Common\File.cs" />
+    <Compile Include="RPFLib\Common\fileSystemObject.cs" />
+    <Compile Include="RPFLib\Common\Hasher.cs" />
+    <Compile Include="RPFLib\Common\ReturnDir.cs" />
+    <Compile Include="RPFLib\Common\xcompress2.cs" />
+    <Compile Include="RPFLib\Resources\DXTDecoder.cs" />
+    <Compile Include="RPFLib\Resources\ResourceUtil.cs" />
+    <Compile Include="RPFLib\Resources\RSC.cs" />
+    <Compile Include="RPFLib\Resources\Utilities.cs" />
+    <Compile Include="RPFLib\Resources\xcompress.cs" />
+    <Compile Include="RPFLib\Resources\xdr.cs" />
+    <Compile Include="RPFLib\Resources\xtd.cs" />
+    <Compile Include="RPFLib\RPF3\TOCEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RPFLib\RPF4\TOCEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RPFLib\RPF6\DirectoryEntry.cs" />
+    <Compile Include="RPFLib\RPF6\File.cs" />
+    <Compile Include="RPFLib\RPF6\FileEntry.cs" />
+    <Compile Include="RPFLib\RPF6\Header.cs" />
+    <Compile Include="RPFLib\RPF6\MagicId.cs" />
+    <Compile Include="RPFLib\RPF6\TOC.cs" />
+    <Compile Include="RPFLib\RPF6\TOCEntry.cs" />
+    <Compile Include="RPFLib\RPF4\DirectoryEntry.cs" />
+    <Compile Include="RPFLib\RPF4\File.cs" />
+    <Compile Include="RPFLib\RPF4\FileEntry.cs" />
+    <Compile Include="RPFLib\RPF4\Header.cs" />
+    <Compile Include="RPFLib\RPF4\MagicId.cs" />
+    <Compile Include="RPFLib\RPF4\TOC.cs" />
+    <Compile Include="RPFLib\RPF7\DirectoryEntry.cs" />
+    <Compile Include="RPFLib\RPF7\File.cs" />
+    <Compile Include="RPFLib\RPF7\FileEntry.cs" />
+    <Compile Include="RPFLib\RPF7\Header.cs" />
+    <Compile Include="RPFLib\RPF7\MagicId.cs" />
+    <Compile Include="RPFLib\RPF7\TOC.cs" />
+    <Compile Include="RPFLib\RPF7\TOCEntry.cs" />
+    <Compile Include="RPFLib\Version3.cs" />
+    <Compile Include="RPFLib\Version6.cs" />
+    <Compile Include="RPFLib\Version4.cs" />
+    <Compile Include="RPFLib\RPF3\DirectoryEntry.cs" />
+    <Compile Include="RPFLib\RPF3\File.cs" />
+    <Compile Include="RPFLib\RPF3\FileEntry.cs" />
+    <Compile Include="RPFLib\RPF3\Header.cs" />
+    <Compile Include="RPFLib\RPF3\MagicId.cs" />
+    <Compile Include="RPFLib\RPF3\TOC.cs" />
+    <Compile Include="RPFLib\Version7.cs" />
+    <Compile Include="Saving.cs" />
+    <Compile Include="Saving.Designer.cs">
+      <DependentUpon>Saving.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Viewers\xscView.cs" />
+    <Compile Include="Viewers\xscView.Designer.cs">
+      <DependentUpon>xscView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Viewers\StringsView.cs" />
+    <Compile Include="Viewers\StringsView.Designer.cs">
+      <DependentUpon>StringsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Viewers\TextureView.cs" />
+    <Compile Include="Viewers\TextureView.Designer.cs">
+      <DependentUpon>TextureView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Viewers\TextView.cs" />
+    <Compile Include="Viewers\TextView.Designer.cs">
+      <DependentUpon>TextView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Viewers\xscViewV7.cs" />
+    <Compile Include="Viewers\xscViewV7.Designer.cs">
+      <DependentUpon>xscViewV7.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="aboutform.resx">
+      <DependentUpon>aboutform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DownloadForm.resx">
+      <DependentUpon>DownloadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extracting.resx">
+      <DependentUpon>Extracting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gameSelection.resx">
+      <DependentUpon>gameSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainForm.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loader.resx">
+      <DependentUpon>Loader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ObjectListView\Utilities\ColumnSelectionForm.resx">
+      <DependentUpon>ColumnSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Saving.resx">
+      <DependentUpon>Saving.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Viewers\xscView.resx">
+      <DependentUpon>xscView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Viewers\TextureView.resx">
+      <DependentUpon>TextureView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Viewers\TextView.resx">
+      <DependentUpon>TextView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Viewers\xscViewV7.resx">
+      <DependentUpon>xscViewV7.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Keys.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ObjectListView\FullClassDiagram.cd" />
+    <None Include="ObjectListView\olv-keyfile.snk" />
+    <None Include="ObjectListView\Resources\clear-filter1.png" />
+    <None Include="ObjectListView\Resources\filter-icons31.png" />
+    <None Include="ObjectListView\Resources\filter1.png" />
+    <None Include="ObjectListView\Resources\sort-ascending1.png" />
+    <None Include="ObjectListView\Resources\sort-descending1.png" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\RDR4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\MC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+    <None Include="Resources\Save.jpg" />
+    <None Include="images\gtav.png" />
+    <Content Include="xcompress32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="images\Home.PNG" />
+    <None Include="images\tick.png" />
+    <None Include="images\Cross.png" />
+    <None Include="images\folder.gif" />
+    <None Include="images\file.gif" />
+    <None Include="images\mp3.png" />
+    <None Include="images\logo_large.png" />
+    <Content Include="ObjectListView\CustomDictionary.xml" />
+    <Content Include="ObjectListView\Resources\clear-filter.png" />
+    <Content Include="ObjectListView\Resources\filter-icons3.png" />
+    <Content Include="ObjectListView\Resources\filter.png" />
+    <Content Include="ObjectListView\Resources\sort-ascending.png" />
+    <Content Include="ObjectListView\Resources\sort-descending.png" />
+    <Content Include="rpf.ico" />
+    <EmbeddedResource Include="RPFLib\KnownFilenames.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
