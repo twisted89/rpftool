@@ -1,0 +1,6 @@
+DevExpress.XtraBars.BarManager, DevExpress.XtraBars.v12.2, Version=12.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit, DevExpress.XtraEditors.v12.2, Version=12.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraEditors.TextEdit, DevExpress.XtraEditors.v12.2, Version=12.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraEditors.Repository.RepositoryItemTextEdit, DevExpress.XtraEditors.v12.2, Version=12.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.Registration.LicenseHelper, DevExpress.Registration, Version=12.2.4.0, Culture=neutral, PublicKeyToken=940cfcde86f32efd
+DXAddin.Connect, DXAddin, Version=1.0.9.9, Culture=neutral, PublicKeyToken=1bade7d244b1b328
