@@ -1,0 +1,1 @@
+A copy of devexpress in required to build this project, for support head over to the forums at http://tmacdev.com
